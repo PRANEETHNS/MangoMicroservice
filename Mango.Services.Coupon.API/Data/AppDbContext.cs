@@ -1,7 +1,7 @@
-﻿using Mango.Services.Coupon.API.Models;
+﻿using Mango.Services.CouponAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Mango.Services.Coupon.API.Data
+namespace Mango.Services.CouponAPI.Data
 {
     public class AppDbContext : DbContext
     {
@@ -10,21 +10,20 @@ namespace Mango.Services.Coupon.API.Data
             
         }
 
-        public DbSet<Models.Coupon> Coupons { get; set; }
+        public DbSet<Coupon> Coupons { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder); //This line is needed if identity is needed
-
-            modelBuilder.Entity<Models.Coupon>().HasData(new Models.Coupon { 
+            modelBuilder.Entity<Coupon>().HasData(new Coupon { 
                 CouponId = 1,
                 CouponCode = "100FF",
                 DiscountAmount = 10,
                 MinAmount = 20            
             });
 
-            modelBuilder.Entity<Models.Coupon>().HasData(new Models.Coupon
+            modelBuilder.Entity<Coupon>().HasData(new Coupon
             {
                 CouponId = 2,
                 CouponCode = "100GG",
@@ -32,7 +31,7 @@ namespace Mango.Services.Coupon.API.Data
                 MinAmount = 60
             });
 
-            modelBuilder.Entity<Models.Coupon>().HasData(new Models.Coupon
+            modelBuilder.Entity<Coupon>().HasData(new Coupon
             {
                 CouponId = 3,
                 CouponCode = "10TG",
